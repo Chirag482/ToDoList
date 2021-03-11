@@ -1,18 +1,27 @@
 const User = require("../models/user");
 const db = require("../models/user");
 module.exports.home = function (req, res) {
+  if (req.isAuthenticated()) {
+    return res.redirect("/profile");
+  }
   return res.render("home", {
     title: "ToDo-List",
   });
 };
 
 module.exports.signUp = function (req, res) {
+  if (req.isAuthenticated()) {
+    return res.redirect("/profile");
+  }
   return res.render("sign_up", {
     title: "Sign-Up",
   });
 };
 
 module.exports.signIn = function (req, res) {
+  if (req.isAuthenticated()) {
+    return res.redirect("/profile");
+  }
   return res.render("sign_in", {
     title: "Sign-In",
   });
@@ -41,4 +50,8 @@ module.exports.create = function (req, res) {
       return res.redirect("/sign-up");
     }
   });
+};
+
+module.exports.createSession = function (req, res) {
+  return res.redirect("/profile");
 };
