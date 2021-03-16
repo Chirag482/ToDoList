@@ -19,5 +19,36 @@
       </li>
       <% } %>
     </ul>
+
+    <section id="list-container">
+      <h3>ToDo App</h3>
+      <form action="/profile/create" id="new-work-form" method="POST">
+        <label for="content">Description</label>
+        <br />
+        <textarea
+          name="content"
+          rows="2"
+          cols="30"
+          placeholder="What you want to do..."
+        ></textarea>
+        <br />
+        <label for="category">Category</label>
+        <br />
+        <select name="category">
+          <option value="other">Choose the category</option>
+          <option value="personal">Personal</option>
+          <option value="work">Work</option>
+          <option value="college">College</option>
+          <option value="other">Other</option>
+        </select>
+        <br />
+        <label for="date">Due date</label>
+        <br />
+        <input type="date" name="date" />
+
+        <br /><br />
+        <input type="submit" value="Add Task" />
+      </form>
+    </section>
   </body>
 </html>
