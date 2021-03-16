@@ -22,6 +22,17 @@
 
     <section id="list-container">
       <h3>ToDo App</h3>
+
+      <ul id="task-list-container">
+        <% for(task of tasks){ %>
+        <li>
+          <p>
+            <h5><%= task.content %></h5>
+            <small><%= task.category %> <%= task.date %></small>
+          </p>
+        </li>
+        <% } %>
+      </ul>
       <form action="/profile/create" id="new-work-form" method="POST">
         <label for="content">Description</label>
         <br />

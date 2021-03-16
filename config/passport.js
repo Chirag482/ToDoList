@@ -47,7 +47,7 @@ passport.checkAuthenticate = function (req, res, done) {
   if (req.isAuthenticated()) {
     return next();
   }
-  return res.redirect("/home");
+  return res.redirect("/");
 };
 
 passport.setAuthenticatedUser = function (req, res, next) {
