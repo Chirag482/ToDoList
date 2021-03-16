@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>TO-DO List</title>
+  </head>
+  <body>
+    <h1>Welcome to To-do list</h1>
+    <ul>
+      <% if (locals.user) {%>
+      <li><a href="/profile"><%= user.name%></a></li>
+      <li>
+        <a href="/sign-out">Sign Out</a>
+      </li>
+      <% }else{ %>
+      <li>
+        <a href="/sign-in">Sign In</a>
+      </li>
+      <li>
+        <a href="/sign-up">Sign Up</a>
+      </li>
+      <% } %>
+    </ul>
+  </body>
+</html>
