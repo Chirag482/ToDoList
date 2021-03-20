@@ -23,12 +23,13 @@
     <section id="list-container">
       <h3>ToDo App</h3>
 
-      <ul id="task-list-container">
+      <ul id="task-list-container" type="none">
         <% for(task of tasks){ %>
         <li>
           <p>
             <h5><%= task.content %></h5>
             <small><%= task.category %> <%= task.date %></small>
+            <a href="/profile/delete/<%= task._id %>"><button>Completed</button></a>
           </p>
         </li>
         <% } %>

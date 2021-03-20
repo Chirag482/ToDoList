@@ -8,5 +8,5 @@ const taskcontroller = require("../controllers/task_controller");
 router.get("/", profileController.profile);
 
 router.post("/create", taskcontroller.create);
-
+router.get("/delete/:id", taskcontroller.delete);
 module.exports = router;

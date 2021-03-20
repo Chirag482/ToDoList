@@ -17,3 +17,15 @@ module.exports.create = function (req, res) {
     }
   );
 };
+
+module.exports.delete = function (req, res) {
+  Work.findById(req.params.id, function (err, wok) {
+    if (err) {
+      console.log("error in deleting");
+      return res.redirect("back");
+    } else {
+      wok.remove();
+    }
+    return res.redirect("back");
+  });
+};
