@@ -8,11 +8,13 @@ const db = require("./config/mongoose");
 const session = require("express-session");
 const passport = require("passport");
 const passportLocal = require("./config/passport");
+const { static } = require("express");
 
 const MongoStore = require("connect-mongodb-session")(session);
 
 app.use(express.urlencoded());
-
+//using static files
+app.use(express.static("./assests"));
 //setting views
 app.set("view engine", "ejs");
 app.set("views", "./views");
