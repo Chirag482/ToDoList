@@ -1,5 +1,6 @@
 const User = require("../models/user");
 const db = require("../models/user");
+const passport = require("passport");
 module.exports.home = function (req, res) {
   if (req.isAuthenticated()) {
     return res.redirect("/profile");
@@ -43,7 +44,21 @@ module.exports.create = function (req, res) {
           console.log("error in creating user in databse");
           return;
         }
-        return res.redirect("/profile");
+        user.save(function (err) {
+          if (err) {
+            console.log("error in saving user");
+            return res.redirect("back");
+          } else {
+            console.log("saved user");
+            req.login(user, function (err) {
+              if (err) {
+                console.log(err);
+              } else {
+                return res.redirect("/profile");
+              }
+            });
+          }
+        });
       });
     } else {
       console.log("Email used before try with new email id");
