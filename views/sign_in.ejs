@@ -1,18 +1,20 @@
 <html>
   <head>
     <title><%= title%></title>
+    <link rel="stylesheet" href="/css/signup.css" />
   </head>
   <body>
-    <h1>Sign In</h1>
-    <form action="/create-session" method="POST">
-      <input type="email" name="email" placeholder="Your Email" required />
-      <input
-        type="password"
-        name="password"
-        placeholder="Your Password"
-        required
-      />
-      <input type="submit" name="submit" value="Sign In" />
-    </form>
+    <div id="container">
+      <form action="/create-session" method="POST">
+        <input type="email" name="email" placeholder="Your Email" required />
+        <input
+          type="password"
+          name="password"
+          placeholder="Your Password"
+          required
+        />
+        <input type="submit" name="submit" value="Sign In" class="submit" />
+      </form>
+    </div>
   </body>
 </html>
