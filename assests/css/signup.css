@@ -1,0 +1,35 @@
+body {
+  background-image: url("../images/to-do.jpg");
+  background-size: cover;
+}
+
+#container {
+  width: 30vw;
+  height: 50vh;
+  margin-top: 28vh;
+  margin-left: 12vw;
+  background-color: #f3e2e2;
+  padding: 15px;
+}
+
+input {
+  display: list-item;
+  margin: auto;
+  margin-bottom: 30px;
+  border-style: none;
+  border-color: transparent;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  font-size: 1.5rem;
+  border-bottom: 3px white solid;
+  padding: 10px;
+}
+
+.submit {
+  color: black;
+  font-weight: bolder;
+}
+.submit:hover {
+  color: red;
+}
