@@ -11,7 +11,7 @@ module.exports.create = function (req, res) {
     function (err, work) {
       if (err) {
         console.log("error in creating a task in database");
-        return;
+        return res.redirect("back");
       }
       return res.redirect("back");
     }

@@ -1,66 +1,88 @@
 <html>
   <head>
     <title>TO-DO List</title>
+    <link rel="stylesheet" href="/css/profile.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+      integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
-    <h1>Welcome to To-do list</h1>
-    <ul>
-      <% if (locals.user) {%>
-      <li><a href="/profile"><%= user.name%></a></li>
-      <li>
-        <a href="/sign-out">Sign Out</a>
-      </li>
-      <% }else{ %>
-      <li>
-        <a href="/sign-in">Sign In</a>
-      </li>
-      <li>
-        <a href="/sign-up">Sign Up</a>
-      </li>
-      <% } %>
-    </ul>
-
+    <div class="username">
+      <ul>
+        <% if (locals.user) {%>
+        <li><a href="/profile"><%= user.name%></a></li>
+        <li>
+          <a href="/sign-out">Sign Out</a>
+        </li>
+        <% }else{ %>
+        <li>
+          <a href="/sign-in">Sign In</a>
+        </li>
+        <li>
+          <a href="/sign-up">Sign Up</a>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+    <div id="container">
+      <form action="/profile/create" id="new-work-form" method="POST">
+        <div class="des">
+          <label for="content">Description</label>
+          <br />
+          <textarea
+            name="content"
+            rows="1"
+            cols="30"
+            placeholder="What you want to do..."
+          ></textarea>
+        </div>
+        <br />
+        <div class="choose">
+          <div class="fifty">
+            <label for="category">Category</label>
+            <br />
+            <select name="category">
+              <option value="other">Choose the category</option>
+              <option value="personal">Personal</option>
+              <option value="work">Work</option>
+              <option value="college">College</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="fifty">
+            <label for="date">Due date</label>
+            <br />
+            <input type="date" name="date" />
+          </div>
+          <br /><br />
+        </div>
+        <input type="submit" value="Add Task" class="submit" />
+      </form>
+    </div>
     <section id="list-container">
-      <h3>ToDo App</h3>
-
       <ul id="task-list-container" type="none">
         <% for(task of tasks){ %>
         <li>
           <p>
-            <h5><%= task.content %></h5>
-            <small><%= task.category %> <%= task.date %></small>
-            <a href="/profile/delete/<%= task._id %>"><button>Completed</button></a>
+            <span class="details">
+              <h3><%= task.content %></h3>
+              <small
+                ><i class="fas fa-calendar-week"></i>&nbsp&nbsp<%= task.date
+                %>&nbsp&nbsp&nbsp<span class="color"><%= task.category %></span>
+              </small></span
+            >
+            <span class="button"
+              ><a href="/profile/delete/<%= task._id %>"
+                ><button>Completed</button></a
+              >
+            </span>
           </p>
         </li>
         <% } %>
       </ul>
-      <form action="/profile/create" id="new-work-form" method="POST">
-        <label for="content">Description</label>
-        <br />
-        <textarea
-          name="content"
-          rows="2"
-          cols="30"
-          placeholder="What you want to do..."
-        ></textarea>
-        <br />
-        <label for="category">Category</label>
-        <br />
-        <select name="category">
-          <option value="other">Choose the category</option>
-          <option value="personal">Personal</option>
-          <option value="work">Work</option>
-          <option value="college">College</option>
-          <option value="other">Other</option>
-        </select>
-        <br />
-        <label for="date">Due date</label>
-        <br />
-        <input type="date" name="date" />
-
-        <br /><br />
-        <input type="submit" value="Add Task" />
-      </form>
     </section>
   </body>
 </html>
